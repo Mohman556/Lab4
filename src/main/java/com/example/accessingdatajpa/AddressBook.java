@@ -1,12 +1,6 @@
 package com.example.accessingdatajpa;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.*;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,10 +9,11 @@ import java.util.ArrayList;
 import java.util.*;
 
 @Entity
+@Table(name = "mybook")
 public class AddressBook {
 
     private Long id;
-    private String name = "Book";
+    public String name;
     private List<BuddyInfo> Buddies;
 
     @Id
@@ -49,9 +44,10 @@ public class AddressBook {
     public void addNewBud(BuddyInfo bud){
         Buddies.add(bud);
     }
-    public void removeBud(String name){
+    public void removeBud(String Name){
+
         for (int i = 0; i < Buddies.size(); i++){
-            if (Buddies.get(i).getName().equals(name)){
+            if (Buddies.get(i).getName().equals(Name)){
                 Buddies.remove(i);
             }
         }

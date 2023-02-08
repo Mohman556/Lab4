@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.*;
 
 @RestController
-@RequestMapping("/api/v0/addressbook")
+@RequestMapping("/addressbook")
 public class MainController {
 
 
@@ -30,7 +30,7 @@ public class MainController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
 
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/v0/addressbook").toUriString());
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/addressbook").toUriString());
         return ResponseEntity.created(uri).body(buddyInfoModel);
     }
 

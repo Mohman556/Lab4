@@ -20,9 +20,9 @@ public class ViewController {
     @GetMapping
     public String getAddressBook(Model model) {
         AddressBook addressBook = Addr.findByName("mybook");
-        model.addAttribute("AddressBookModel", addressBook);
+        model.addAttribute("AddressBook", addressBook);
         model.addAttribute("Buddies", addressBook.getBuddies());
-        return "view2";
+        return "View";
     }
 //    @RequestMapping (value = "/getting", method = RequestMethod.GET)
 //    public String getting(@RequestParam(value = "Name") String name, Model model){
